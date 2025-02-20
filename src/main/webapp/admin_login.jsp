@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%><style>
+.paint-card{
+box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+</style>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <%@ include  file="component/allCss.jsp" %>
 <title>Admin_login</title>
-<style>
-.paint-card{
-box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
-}
-</style>
+
 </head>
 <body>
 <%@ include file="component/navbar.jsp" %>

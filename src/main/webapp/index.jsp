@@ -1,3 +1,5 @@
+<%@page import="com.db.DBConnect"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +17,8 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 </head>
 <body>
 <%@ include file="component/navbar.jsp" %>
+
+	
 
 
 <div id="carouselExampleIndicators" class="carousel slide">
@@ -82,6 +86,8 @@ Voluptatem, inventore</p>
 </div> 
 </div> 
 </div>
+
+
 
  
 <div class="col-md-6"> 
