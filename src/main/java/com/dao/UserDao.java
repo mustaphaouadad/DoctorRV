@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 
 import com.entity.User;
@@ -25,7 +26,7 @@ public class UserDao {
 			ps.setString(4, u.getPass_word());
 			
 			int i=ps.executeUpdate();
-			if (i==0) {
+			if (i>0) {
 				f=true;
 				
 			}

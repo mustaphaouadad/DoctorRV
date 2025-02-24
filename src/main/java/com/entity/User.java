@@ -10,6 +10,10 @@ public class User {
 	
 	
 	
+	public User() {
+		super();
+		
+	}
 	public User(String username, String telephone, String email, String pass_word) {
 		super();
 		Username = username;

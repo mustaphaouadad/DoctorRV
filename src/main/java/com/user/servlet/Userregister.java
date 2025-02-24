@@ -2,10 +2,12 @@ package com.user.servlet;
 
 import java.io.IOException;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.dao.UserDao;
 import com.db.DBConnect;
@@ -35,19 +37,23 @@ public class Userregister extends HttpServlet {
 			 UserDao dao=new UserDao(DBConnect.getCoon());
 			 boolean f=dao.regestair(u);
 			 
+			 HttpSession session =request.getSession();
+			 
 			 
 			 if (f) {
-				System.out.println("register succesfull");
+				 session.setAttribute("sucMsg","register succesfull");
+				 response.sendRedirect("signup.jsp");
+				
 			} else {
-				System.out.println("something wrong on server");
+				 session.setAttribute("errormsg","something wrong on server");
+				 response.sendRedirect("signup.jsp");
+				
 
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 		
 	}
 
