@@ -28,13 +28,13 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 
         <c:if test="${not empty sucMsg }">
         <p class="text-center text-success fs-3">${sucMsg}</p>
-        <c:remove var="$ sucMsg" scope="session"/>
+        <c:remove var="$sucMsg" scope="session"/>
         
         </c:if>
         
         <c:if test="${not empty errormsg }">
         <p class="text-center text-danger fs-3">${errormsg}</p>
-        <c:remove var="$ errormsg" scope="session"/>
+        <c:remove var="$errormsg" scope="session"/>
         
         </c:if>
  
