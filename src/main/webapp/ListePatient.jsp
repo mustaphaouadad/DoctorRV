@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +14,10 @@
 </head>
 <body class="bg-light">
 
-   <%@ include file="component/navbar.jsp" %>
+   <%@ include file="../admin/navbar.jsp" %>
+   
+   
+     
 
     <!-- Formulaire -->
     
@@ -64,7 +69,7 @@
 
                             <!-- Bouton Soumettre -->
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Reserver</button>
+                                <button type="submit" class="btn btn-success">Reserver</button>
                             </div>
                         </form>
                     </div>

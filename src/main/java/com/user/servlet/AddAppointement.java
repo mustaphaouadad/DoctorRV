@@ -50,7 +50,7 @@ public class AddAppointement extends HttpServlet {
 		AppointementDao appointementDao = new AppointementDao();
         int result = appointementDao.ajouterAppointement(p);
         if (result > 0) {
-        	response.sendRedirect("admin/index.jsp");
+        	response.sendRedirect("index.jsp");
 
         }else {
             PrintWriter out = response.getWriter();

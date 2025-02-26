@@ -24,7 +24,7 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 <div class="col-md-4 offset-md-4"> 
 <div class="card paint-card"> 
 <div class="card-body"> 
-<p class="fs-4 text-center">Admin Login</p> 
+<p class="fs-4 text-center">Doctor Login</p> 
 
 
            <c:if test="${not empty sucMsg }">
@@ -49,7 +49,7 @@ name="email" type="email" class="form-control">
 
 name="password" type="password" class="form-control"> 
 </div>
-<button type="submit" class="btn bg-success text-white col-md-12">Login</button> 
+<a type="submit"  href="DislpayAppointement" class="btn btn-success text-white col-md-12">Login</a> 
 </form> 
 </div> 
 </div> 

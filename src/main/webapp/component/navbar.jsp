@@ -7,15 +7,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="admin_login.jsp"><i class="fa-solid fa-right-to-bracket"></i>ADMIN</a>
+          <a class="nav-link active" aria-current="page" href="admin_login.jsp"><i class="fa-solid fa-right-to-bracket"></i>DOCTOR</a>
         </li>
+        <!-- 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="doctor_login.jsp">DOCTOR</a>
+          <a class="nav-link active" aria-current="page" href="doctor_login.jsp"></a>
         </li>
+       
         
          <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">APPOTTNMENT</a>
         </li>
+          -->
         
          <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="user_login.jsp">USER</a>

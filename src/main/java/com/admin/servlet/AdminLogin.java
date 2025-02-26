@@ -28,7 +28,7 @@ public class AdminLogin extends HttpServlet {
 			String password=request.getParameter("password");
 			HttpSession session = request.getSession();
 
-			if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
+			if ("admin@gmail.com".equals(email) && "admin".equals(password) || "mastafa@gmail.com".equals(email)&& "1234".equals(password)) {
 				session.setAttribute("adminObj", new User());
 				response.sendRedirect("admin/index.jsp");
 			} else {

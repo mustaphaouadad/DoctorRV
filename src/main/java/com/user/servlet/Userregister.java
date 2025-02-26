@@ -43,7 +43,7 @@ public class Userregister extends HttpServlet {
 			 
 			 if (f) {
 				 session.setAttribute("sucMsg","register succesfull");
-				 response.sendRedirect("signup.jsp");
+				 response.sendRedirect("user_login.jsp");
 				
 			} else {
 				 session.setAttribute("errormsg","something wrong on server");

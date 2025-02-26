@@ -2,10 +2,19 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.db.DBConnect;
 import com.entity.appointment;
+
+
+   
+
+import java.sql.Statement;
+
+
 
 public class AppointementDao {
 	
@@ -16,12 +25,7 @@ public class AppointementDao {
         String query = "INSERT INTO hospital.appointment ( idRendezVous,username, dateDdv,  heure, statut, motif) VALUES (?,?, ?, ?,?, ?)";
         try {
             Connection coon = DBConnect.getCoon();
-            if(coon == null) {
-                System.out.println("database not connected!!");
-                return 0; // Arrêter ici si la connexion est nulle
-            } else {
-                System.out.println("Connexion réussie à la base de données !");
-            }
+          
             PreparedStatement pst = coon.prepareStatement(query);
 
             pst.setInt(1, p.getIdRendezVous());
@@ -32,12 +36,49 @@ public class AppointementDao {
             pst.setString(6, p.getMotif());
 
            result = pst.executeUpdate();
-           System.out.println("Nombre de lignes insérées : " + result);
-            // Retourne 1 si l'insertion a réussi
+          
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return result; // Retourne 0 en cas d'échec
+        return result;
+    }
+	
+	
+	          
+	
+	public static ArrayList<appointment> getAllAppointement (){
+        ArrayList <appointment> p = new ArrayList<appointment>();
+
+        try {
+            Connection coon= DBConnect.getCoon();
+            
+           
+            Statement smt = coon.createStatement();
+            ResultSet rs = smt.executeQuery("SELECT * FROM hospital.appointment");
+
+            while(rs.next()) {
+            	appointment ppst = new appointment();
+
+                
+            	ppst.setIdRendezVous(rs.getInt("idRendezVous"));
+            	ppst.setUsername(rs.getString("username"));
+            	ppst.setDateDdv(rs.getDate("dateDdv"));
+            	ppst.setHeure(rs.getString("heure"));
+            	ppst.setStatut(rs.getString("statut"));
+            	ppst.setMotif(rs.getString("motif"));
+            	p.add(ppst); 
+
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+
+
+        return p;
+
     }
 
 }

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.entity.*" %>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
@@ -28,7 +30,8 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
               
               
               <div class="container p-5">
-		<p class="text-center fs-3">Admin Dashboard</p>
+		<p class="text-center fs-3">Doctor Dashboard</p>
+		
 		<c:if test="${not empty errorMsg}">
 			<p class="fs-3 text-center text-danger">${errorMsg}</p>
 			<c:remove var="errorMsg" scope="session" />
@@ -38,58 +41,61 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 			<c:remove var="succMsg" scope="session" />
 		</c:if>
 		
-		<div class="row">
-			<div class="col-md-4">
-				<div class="card paint-card">
-					<div class="card-body text-center text-success">
-						<i class="fas fa-user-md fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							Doctor <br>
-						</p>
-					</div>
-				</div>
-			</div>
+		
+		
+		
+		
+		         
+		         <div class="container mt-5">
+
+       <% ArrayList <appointment> p  = (ArrayList<appointment>) request.getAttribute("data"); %>
+       <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Username</th>
+      <th scope="col">La Date </th>
+      <th scope="col">Heure </th>
+      <th scope="col">Statut</th>
+      <th scope="col">Motif</th>
+      <th scope="col">Action</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+  <% if (p!= null && !p.isEmpty()) { %>
+    <% for (appointment temp : p) { %>
+        <tr>
+            <td><%= temp.getUsername() %> </td>
+            <td><%= temp.getDateDdv() %> </td>
+             <td><%= temp.getHeure()  %> </td>
+            <td> <%= temp.getStatut()  %></td>
+            <td> <%= temp.getMotif() %></td>
+           <td><a type="button" href = "editAppointement?idRendezVous=<%= temp.getIdRendezVous() %>" class="btn btn-warning">edit</a></td>
+            <td><a type="button" href="DeleteAppointement?idRendezVous=<%= temp.getIdRendezVous() %>" class="btn btn-danger">delete</a></td>
+        </tr>
+    <% } %>
+<% } else { %>
+    <tr><td colspan="2">Aucun rendez-vous trouvé.</td></tr>
+<% } %>
 
 
 
-			<div class="col-md-4">
-				<div class="card paint-card">
-					<div class="card-body text-center text-success">
-						<i class="fas fa-user-circle fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							User <br>
-						</p>
-					</div>
-				</div>
-			</div>
+  </tbody>
+</table>
 
-			<div class="col-md-4">
-				<div class="card paint-card">
-					<div class="card-body text-center text-success">
-						<i class="far fa-calendar-check fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							Total Appointment <br>
-						</p>
-					</div>
-				</div>
-			</div>
+    </div>
+		
+		
 
-			<div class="col-md-4 mt-2">
 
-				<div class="card paint-card " data-bs-toggle="modal"
-					data-bs-target="#exampleModal">
-					<div class="card-body text-center text-success">
-						<i class="far fa-calendar-check fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							Specialist <br>
-						</p>
-					</div>
-				</div>
 
-			</div>
+
+			
 
 		</div>
-	</div>
+	
 
               
 

@@ -18,7 +18,7 @@ public class AdminLogout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.removeAttribute("adminObj");
 		session.setAttribute("sucMsg", "Admin Logout  Sucessfully");
-		response.sendRedirect("admin_login.jsp");
+		response.sendRedirect("index.jsp");
 
 	}
 
