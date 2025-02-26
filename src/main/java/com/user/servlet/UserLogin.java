@@ -2,6 +2,7 @@ package com.user.servlet;
 
 import java.io.IOException;
 
+
 import com.dao.UserDao;
 import com.db.DBConnect;
 import com.entity.User;
@@ -30,7 +31,7 @@ public class UserLogin extends HttpServlet {
 
 		if (user!=null) {
 			session.setAttribute("userObj", user);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("ListePatient.jsp");
 		} else {
 			session.setAttribute("errorMsg", "invalid email & password");
 			response.sendRedirect("user_login.jsp");
