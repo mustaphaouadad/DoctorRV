@@ -49,41 +49,62 @@ box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
 		         <div class="container mt-5">
 
        <% ArrayList <appointment> p  = (ArrayList<appointment>) request.getAttribute("data"); %>
-       <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">La Date </th>
-      <th scope="col">Heure </th>
-      <th scope="col">Statut</th>
-      <th scope="col">Motif</th>
-      <th scope="col">Action</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-
-  <% if (p!= null && !p.isEmpty()) { %>
-    <% for (appointment temp : p) { %>
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered text-center align-middle">
+      <thead class="table-dark">
         <tr>
-            <td><%= temp.getUsername() %> </td>
-            <td><%= temp.getDateDdv() %> </td>
-             <td><%= temp.getHeure()  %> </td>
-            <td> <%= temp.getStatut()  %></td>
-            <td> <%= temp.getMotif() %></td>
-           <td><a type="button" href = "editAppointement?idRendezVous=<%= temp.getIdRendezVous() %>" class="btn btn-warning">edit</a></td>
-            <td><a type="button" href="DeleteAppointement?idRendezVous=<%= temp.getIdRendezVous() %>" class="btn btn-danger">delete</a></td>
+          <th scope="col">Username</th>
+          <th scope="col">La Date</th>
+          <th scope="col">Heure</th>
+          <th scope="col">Statut</th>
+          <th scope="col">Motif</th>
+          <th scope="col" colspan="2">Actions</th>
         </tr>
-    <% } %>
-<% } else { %>
-    <tr><td colspan="2">Aucun rendez-vous trouvé.</td></tr>
-<% } %>
+      </thead>
+      <tbody>
+        <% if (p != null && !p.isEmpty()) { %>
+          <% for (appointment temp : p) { %>
+            <tr>
+              <td><%= temp.getUsername() %></td>
+              <td><%= temp.getDateDdv() %></td>
+              <td><%= temp.getHeure() %></td>
+              <td>
+                <span class="badge 
+                  <%= temp.getStatut().equals("Confirmé") ? "bg-success" : 
+                      temp.getStatut().equals("Annulé") ? "bg-danger" : 
+                      "bg-secondary" %>">
+                  <%= temp.getStatut() %>
+                </span>
+              </td>
+              <td><%= temp.getMotif() %></td>
+              <td>
+                <a href="#" 
+                   class="btn btn-sm btn-warning">
+                  <i class="bi bi-pencil-square"></i> Edit
+                </a>
+              </td>
+              <td>
+                <a href="#" 
+                   class="btn btn-sm btn-danger">
+                  <i class="bi bi-trash"></i> Delete
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        <% } else { %>
+          <tr>
+            <td colspan="7">Aucun rendez-vous trouvé.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-
-
-  </tbody>
-</table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     </div>
 		
